@@ -1,0 +1,11 @@
+/* latin */
+@font-face {
+    font-family: 'Montserrat';
+    font-display: swap;
+    src: url("../fonts/montserrat.eot"); /* IE9 Compat Modes */
+    src: url("../fonts/montserrat.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+    url("../fonts/montserrat.woff2") format('woff2'), /* Super Modern Browsers */
+    url("../fonts/montserrat.woff") format('woff'), /* Pretty Modern Browsers */
+    url("../fonts/montserrat.ttf") format('truetype'), /* Safari, Android, iOS */
+    url("../fonts/montserrat.svg") format('svg'); /* Legacy iOS */
+}

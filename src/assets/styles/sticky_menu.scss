@@ -1,0 +1,135 @@
+@use "sass:math";
+
+.sticky-menu__background {
+    position: fixed;
+    border-radius: 10px;
+    top: 0;
+    left: 16.5px;
+    right: 16.5px;
+    z-index: 1;
+    background-color: var(--color-background-secondary);
+    transition: .4s height;
+
+    &.hidden {
+        pointer-events: none;
+        height: 0;
+    }
+}
+
+.sticky-menu__content {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    padding-top: 33px;
+    right: 66px;
+    padding-bottom: 33px;
+    left: 66px;
+    z-index: 1;
+    opacity: 1;
+    transition: .6s opacity;
+
+    &__left,
+    &__right {
+        display: flex;
+        flex-direction: column;
+
+        &>*:first-child {
+            flex-grow: 1;
+        }
+
+        &__links {
+            display: flex;
+            flex-direction: column;
+
+            &__link {
+                font-size: 33px;
+                padding: 33px 0;
+                font-weight: 700;
+                border-bottom: 1px solid var(--color-text);
+            }
+        }
+
+        &__extras {
+            margin-top: 66px;
+        }
+    }
+
+    &__left {
+        flex-grow: 1;
+    }
+
+    &__right {
+        display: none;
+    }
+
+    &.hidden {
+        pointer-events: none;
+        opacity: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .sticky-menu__background {
+        left: 33px;
+        right: 33px;
+    }
+
+    .sticky-menu__content {
+        padding-top: 66px;
+        right: 99px;
+        padding-bottom: 66px;
+        left: 99px;
+        flex-direction: row;
+
+        &__left {
+            margin-right: 10%;
+            flex-grow: math.div(6, 10);
+
+            &__links {
+
+                &__link {
+
+                    padding-left: 33px;
+                    font-size: 50px;
+
+                    &::after {
+                        left: 0;
+                        margin: 33px 33px 33px 33px;
+                        font-weight: 700;
+                    }
+
+                    &::before {
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                    }
+
+
+                    &:hover {
+                        transform: translateX(16.5px);
+
+                        &::before,
+                        &::after {
+                            right: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        &__right {
+            display: block;
+            flex-grow: math.div(4, 10);
+
+            &__sweet {
+                img {
+                    width: 33vmin;
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (min-width: 1024px) {}

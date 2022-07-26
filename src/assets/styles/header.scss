@@ -1,0 +1,160 @@
+@use "sass:math";
+
+.nav-header {
+    padding-left: 33px;
+    padding-right: 33px;
+    padding-top: 33px;
+    padding-bottom: 33px;
+    display: flex;
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-background);
+
+    &__brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        a {
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.075em;
+        }
+    }
+
+    &__menu {
+        display: flex;
+        justify-content: flex-end;
+        flex-grow: 1;
+
+        &__links {
+            display: none;
+        }
+
+
+
+        &__burger {
+            @supports (-webkit-tap-highlight-color: transparent) {
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            width: 33px;
+            position: relative;
+            margin-left: 2rem;
+
+            &__line {
+                $lines: 3;
+                $line_height: 2;
+                $line_spacing: 8;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                transition: .4s opacity, .4s left, .4s width, .4s transform;
+                position: absolute;
+                display: block;
+                width: 33px;
+                height: #{$line_height}px;
+                background-color: var(--color-text);
+
+                @for $i from 0 to $lines {
+                    &:nth-child(#{$i + 1}) {
+                        $a: (($i * $line_spacing) - $line_spacing) - math.div($line_height, 2);
+                        top: calc(50% + #{$a}px);
+                    }
+                }
+
+                &:nth-child(2) {
+                    width: 16.5px;
+                }
+
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                &> :nth-child(2) {
+                    width: 22px;
+                    left: 0;
+                    opacity: 1;
+                }
+            }
+
+            &.active {
+                &> :nth-child(1) {
+                    transform: translateY(8px) rotate(45deg);
+                }
+
+                &> :nth-child(2) {
+                    left: 6px;
+                    width: 4px;
+                    opacity: 0;
+                }
+
+                &> :nth-child(3) {
+                    transform: translateY(-8px) rotate(-45deg);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .nav-header {
+        padding-left: 66px;
+        padding-right: 66px;
+        top: 0;
+
+        &__menu {
+            &__links {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                flex-grow: 1;
+
+                &__link {
+                    transition: .4s transform, .4s opacity;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    margin-right: 5rem;
+                    transform: translateX(0);
+
+                    &::after {
+                        font-weight: 600;
+                    }
+
+                    &:last-child {
+                        margin-right: 3rem;
+                    }
+                }
+
+                &.hidden>* {
+                    transform: translateX(20px);
+                    opacity: 0;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .nav-header {
+        &__menu {
+            &__links {
+                &__link {
+                    margin-right: 10rem;
+
+                    &:last-child {
+                        margin-right: 8rem;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.project-container {
+    color: black;
+
+    &:nth-child(odd) {
+        background-color: lightblue;
+    }
+
+    &:nth-child(even) {
+        background-color: lightcoral;
+    }
+}
+
+h1 {
+    margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+}

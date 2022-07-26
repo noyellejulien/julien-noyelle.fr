@@ -1,0 +1,11 @@
+.projects-container {
+    position: relative;
+    display: inline-block;
+    color: var(--color-text);
+
+    &-subcontainer {
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+    }
+}

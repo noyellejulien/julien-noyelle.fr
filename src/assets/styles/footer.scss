@@ -1,0 +1,117 @@
+@use "sass:math";
+
+.nav-footer {
+    margin-left: 33px;
+    margin-right: 33px;
+    margin-bottom: 33px;
+    display: flex;
+    flex-direction: column;
+
+    &__left,
+    &__right {
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+
+        &__extras {
+            flex-grow: 1;
+            display: flex;
+            align-items: flex-end;
+            flex-direction: row;
+        }
+    }
+
+    &__left {
+
+        &__citation {
+            & p {
+                font-weight: 700;
+                font-size: 32px;
+                text-transform: uppercase;
+            }
+        }
+
+        &__mail {
+            margin-top: 33px;
+
+            & a {
+                font-size: 16px;
+            }
+        }
+
+        &__extras {
+            font-size: 10px;
+
+            &__menu {
+                flex-grow: 1;
+                text-align: left;
+
+                &__link:not(:first-child) {
+                    margin-left: 33px;
+                }
+            }
+
+            &__brand {
+                color: var(--color-text-weak);
+                margin-left: 33px;
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .nav-footer {
+        margin-left: 66px;
+        margin-right: 66px;
+        margin-bottom: 66px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .nav-footer {
+        flex-direction: row;
+
+        &__left {
+            height: auto;
+            flex-direction: row;
+            flex-grow: 1;
+
+            &__citation {
+
+                & p {
+                    font-weight: 700;
+                    font-size: 32px;
+                    text-transform: uppercase;
+                }
+            }
+
+            &__mail {
+                flex-grow: 1;
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                margin-top: 0;
+                margin-right: 66px;
+
+                & a {
+                    font-size: 16px;
+                }
+            }
+
+            &__extras {
+
+                flex-grow: 0;
+                font-size: 10px;
+                justify-content: flex-end;
+                align-items: flex-end;
+
+                &__menu {
+                    flex-grow: 0;
+                }
+            }
+        }
+
+    }
+}

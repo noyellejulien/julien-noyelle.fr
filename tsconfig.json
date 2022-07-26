@@ -1,0 +1,29 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "types": [
+      "@intlify/vite-plugin-vue-i18n/client",
+      "vite-plugin-terminal/client",
+      "node"
+    ],
+    "strict": true,
+    "target": "ESNext"
+  },
+  "resolveJsonModule": true,
+  "references": [
+    {
+      "path": "./tsconfig.config.json"
+    }
+  ]
+}

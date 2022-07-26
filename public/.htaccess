@@ -1,0 +1,16 @@
+# This is my optimized .htaccess, feel free to change it to your need
+# I transfer that file to dist folder when I put the project in production
+
+AddCharset UTF-8 .html
+AddCharset UTF-8 .js
+AddCharset UTF-8 .css
+AddType font/woff2 .woff2
+AddType image/webp .webp
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header add Cache-Control "public,max-age=180,immutable"
+    <filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|woff2|webp)$">
+        Header add Cache-Control "public,max-age=31536000,immutable"
+    </filesMatch>
+</IfModule>

@@ -25,7 +25,7 @@ const { t } = useI18n();
           }}</a>
         </div>
         <div class="nav-footer__left__extras__brand">
-          <span>made with ❤️</span>
+          <span>{{t("madewith") }} ❤️</span>
         </div>
       </div>
     </div>
